@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة المستخدم - SHIFAA MOVE</title>
+    <link rel="stylesheet" href="userpage.css">
+    <script>
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+
+    function logout() {
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = "index.html"; 
+    }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="header-right">
+            <div class="user-profile">
+                <img src="userpage 22.png" alt="User" class="avatar">
+                <span>نوره</span>
+            </div>
+            <nav style="display: flex; gap: 10px; align-items: center;">
+                <a href="index.html" class="nav-btn">الصفحة الرئيسية</a>
+                <a href="favorites.html" class="nav-btn">المفضلة</a>
+            </nav>
+        </div>
+
+        <div class="header-center">
+            <div class="search-box">
+                <input type="text" placeholder="البحث">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+
+        <div class="header-left">
+            
+            <a href="userpage-en.html" class="nav-btn" style="text-decoration: none; background-color: #ffffff; color: #333;">English</a>
+            <button class="nav-btn" id="logout-btn" onclick="logout()">تسجيل الخروج</button>
+            <div class="logo">
+                <img src="img_2.png" alt="SHIFAA MOVE">
+            </div>
+        </div>
+    </header>
+
+    <section class="welcome-banner">
+        <h1>مرحبًا بعودتك، نوره 👋</h1>
+        <p>ابدأ رحلتك نحو التعافي وتحسين الحركة اليوم</p>
+    </section>
+
+    <main class="container">
+        <div class="card">
+            <div class="card-title">التمارين</div>
+            <div class="card-images">
+                <img src="userpage 7.png" alt="تمرين 1">
+                <img src="userpage 7-1.png" alt="تمرين 2">
+                <img src="userpage 7-2.png" alt="تمرين 3">
+            </div>
+            <a href="pageAfterLogin.html" class="action-btn">عرض التمارين</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">الأدوات الطبية</div>
+            <div class="card-images tools-images">
+                <img src="userpage 21.png" alt="أداة 1">
+                <img src="userpage 21-1.png" alt="أداة 2">
+                <img src="userpage 21-2.png" alt="أداة 3">
+            </div>
+            <a href="tools.php" class="action-btn">عرض الادوات</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">المراكز</div>
+            <div class="card-images centers-images">
+                <img src="userpage 16.png" alt="مركز 1">
+                <img src="userpage 16-1.png" alt="مركز 2">
+                <img src="userpage 16-2.png" alt="مركز 3">
+            </div>
+            <a href="centers.html" class="action-btn">عرض المراكز</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">من نحن</a>
+            <a href="contact_us.html">تواصل معنا</a>
+            <a href="teerms.html">سياسة الخصوصية والشروط والأحكام</a>
+            <a href="FAQ.html">الأسئلة الشائعة</a>
+        </div>
+    </footer>
+</body>
+</html>

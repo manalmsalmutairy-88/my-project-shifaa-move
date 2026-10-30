@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    direction: rtl;
+
+    background-image: url('img_1.png'); /* غيري الاسم حسب صورتك */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /*  يمنع السكرول  */
+}
+
+/* الهيدر */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    direction: ltr;
+}
+
+.logo img {
+    width: 140px;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    direction: rtl;
+}
+
+.nav-btn {
+    text-decoration: none; /* يشيل الخط */
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background-color: #d9ecec;
+    font-size: 13px;
+    color: black;
+}
+
+.nav-btn.active {
+    background-color: #9ed1d1;
+}
+
+/* المحتوى */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* الكرت */
+.card {
+    background: rgba(173, 216, 216, 0.85);
+    backdrop-filter: blur(5px);
+
+    padding: 15px;
+    border-radius: 20px;
+
+    width: 100%;
+    max-width: 390px;
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2b7a7a;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 13px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 8px;
+}
+
+.rules {
+    font-size: 11px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+}
+
+.rules li {
+    margin-bottom: 2px;
+}
+
+/* الأزرار */
+.main-btn {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #5bbcbc;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    text-decoration: none; /* يشيل الخط */
+    display: block; /* يخليه ياخذ سطر كامل */
+    text-align: center;
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #7fcaca;
+
+    margin-top: 10px;
+    cursor: pointer;
+
+    color: black; /* يمنع اللون الأزرق */
+    font-size: 14px;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin: 3px 0 8px;
+    text-align: right;
+}
+.success {
+    color: green;
+    font-size: 13px;
+    margin-top: 10px;
+    text-align: center;
+}
+input.error-border {
+    border: 2px solid red;
+}
+
+/* الفوتر */
+footer {
+    background-color: #cce7e7;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.footer-links a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    left: -10px;
+    color: #999;
+}

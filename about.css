@@ -1,0 +1,184 @@
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-image: url('img_1.jpg'); /* صورتك */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #2f6f6a;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* بدل height */
+}
+
+/* ================= HEADER ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: ltr;
+    padding: 10px 25px; /* أصغر */
+}
+
+.logo img {
+    width: 120px; /* أصغر */
+}
+
+/* الأزرار */
+.nav-btn {
+    text-decoration: none;
+    padding: 8px 16px; /*أصغر */
+    border-radius: 20px;
+    background-color: #d9ecec;
+    color: black;
+    font-size: 14px;
+}
+
+/* ================= TITLE ================= */
+.title {
+    text-align: center;
+    font-size: 32px; /* كان 50 */
+    margin: 10px 0 15px;
+}
+
+/* ================= ABOUT ================= */
+.about-page .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 20px; /* أصغر */
+}
+
+/* الصورة */
+.about-page .about-image {
+    width: 200px; /* أصغر */
+}
+
+/* الصندوق */
+.about-page .about-box {
+    width: 360px; /* أصغر */
+    min-height: auto;
+
+    background: rgba(173, 200, 200, 0.9);
+    padding: 25px 25px 20px 80px; /* أقل */
+
+    border-radius: 20px;
+    line-height: 1.8;
+
+    margin-right: -60px;
+
+    clip-path: polygon(0% 6%, 100% 0%, 96% 100%, 0% 94%);
+}
+
+.about-page .about-box h2 {
+    font-size: 28px; /* أصغر */
+    transform: translateX(-40px);
+}
+
+.about-page .about-box p {
+    font-size: 14px;
+    transform: translateX(-30px);
+}
+
+/* ================= TERMS ================= */
+.terms-page .terms-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* أقل */
+    padding: 10px 30px;
+}
+
+.terms-page .terms-col {
+    width: 320px; /* أصغر */
+    line-height: 1.8;
+}
+
+.terms-page .terms-col h3 {
+    font-size: 18px;
+}
+
+.terms-page .terms-col p {
+    font-size: 13px;
+}
+
+/* ================= CENTERS ================= */
+.centers-page .centers-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* أقل */
+    padding: 0 20px 10px;
+}
+
+.centers-page .center {
+    width: 140px;
+}
+
+.centers-page .center img {
+    width: 100px;
+}
+
+.centers-page .center-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+}
+
+.centers-page .center p {
+    font-size: 12px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: #cce7e7;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.footer-links a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    left: -10px;
+    color: #999;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .about-page .content,
+    .terms-page .terms-wrapper,
+    .centers-page .centers-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-page .about-box {
+        margin-right: 0;
+        clip-path: none;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تمارين - كبار السن</title>
+<link rel="stylesheet" href="MuscleToningExercises.css">
+
+<style>
+.cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px; }
+.card { width: 280px; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; position: relative; }
+.card:hover { transform: translateY(-5px); }
+.card h3 { background-color: #ddeeee; margin: 0; padding: 15px; font-size: 15px; text-align: center; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+.video-preview { width: 100%; height: 160px; object-fit: cover; display: block; background: #000; }
+
+.fav-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); justify-content: center; align-items: center; z-index: 999; }
+.popup-content { position: relative; width: 90%; max-width: 300px; }
+.popup video { width: 100%; border-radius: 10px; }
+.close { position: absolute; top: -40px; right: 0; font-size: 35px; color: white; cursor: pointer; }
+</style>
+
+<script>
+function openVideo(videoSrc) {
+    const popup = document.getElementById("videoPopup");
+    const video = document.getElementById("videoPlayer");
+    video.src = videoSrc;
+    popup.style.display = "flex";
+    video.play();
+}
+function closeVideo() {
+    const popup = document.getElementById("videoPopup");
+    const video = document.getElementById("videoPlayer");
+    video.pause();
+    video.src = "";
+    popup.style.display = "none";
+}
+
+function toggleFav(btn) {
+    if (btn.innerHTML.trim() === '🤍') {
+        btn.innerHTML = '❤️';
+        showFavMessage('تمت الإضافة للمفضلة ❤️');
+    } else {
+        btn.innerHTML = '🤍';
+        showFavMessage('تمت الإزالة من المفضلة 💔');
+    }
+}
+
+function showFavMessage(text) {
+    let msg = document.getElementById("favMessage");
+
+    if (!msg) {
+        msg = document.createElement("div");
+        msg.id = "favMessage";
+        msg.style.position = "fixed";
+        msg.style.top = "20px";
+        msg.style.left = "50%";
+        msg.style.transform = "translateX(-50%)";
+        msg.style.background = "#e8fff8";
+        msg.style.color = "#0e4a43";
+        msg.style.padding = "12px 20px";
+        msg.style.borderRadius = "12px";
+        msg.style.fontWeight = "bold";
+        msg.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+        msg.style.zIndex = "99999";
+        document.body.appendChild(msg);
+    }
+
+    msg.innerHTML = text;
+    msg.style.display = "block";
+
+    setTimeout(() => {
+        msg.style.display = "none";
+    }, 2000);
+}
+
+window.onload = function() {
+    const video = document.getElementById("videoPlayer");
+    const popup = document.getElementById("videoPopup");
+    video.onended = function() { closeVideo(); };
+    popup.onclick = function(e) { if (e.target.id === "videoPopup") { closeVideo(); } };
+};
+</script>
+</head>
+
+<body>
+<header class="header">
+    <div class="logo">
+        <img src="images/logo.png" alt="logo">
+    </div>
+    <nav style="display: flex; gap: 10px; align-items: center;">
+        <a href="index.html" class="nav-btn">الصفحة الرئيسية</a>
+        <a href="pageAfterLogin.html" class="nav-btn">قائمة التمارين الرئيسية</a>
+        <a href="favorites.html" class="nav-btn">المفضلة</a>
+        <a href="SeniorsExercises-en.html" class="nav-btn">English</a>
+    </nav>
+</header>
+
+<h2 class="title"> اللياقة العامة: </h2>
+<div class="cards">
+    <div class="card">
+        <button type="button" class="fav-btn" onclick="toggleFav(this)">🤍</button>
+        <div onclick="openVideo('Vid/video_7.mp4')">
+            <h3>المشي السريع<br>مشي سريع 15–30 دقيقة</h3>
+            <video class="video-preview" src="Vid/video_7.mp4#t=0.001" muted></video>
+        </div>
+    </div>
+    <div class="card">
+        <button type="button" class="fav-btn" onclick="toggleFav(this)">🤍</button>
+        <div onclick="openVideo('Vid/video_6.mp4')">
+            <h3>السكوات<br>نزول وصعود بسيط</h3>
+            <video class="video-preview" src="Vid/video_6.mp4#t=0.001" muted></video>
+        </div>
+    </div>
+    <div class="card">
+        <button type="button" class="fav-btn" onclick="toggleFav(this)">🤍</button>
+        <div onclick="openVideo('Vid/video_5.mp4')">
+            <h3>البلانك<br>تثبيت الجسم</h3>
+            <video class="video-preview" src="Vid/video_5.mp4#t=0.001" muted></video>
+        </div>
+    </div>
+    <div class="card">
+        <button type="button" class="fav-btn" onclick="toggleFav(this)">🤍</button>
+        <div onclick="openVideo('Vid/video_4.mp4')">
+            <h3>رفع الكعبين<br>رفع الكعب للأعلى</h3>
+            <video class="video-preview" src="Vid/video_4.mp4#t=0.001" muted></video>
+        </div>
+    </div>
+</div>
+
+<h2 class="title"> خشونة الركبة: </h2>
+<div class="cards">
+    <div class="card">
+        <button type="button" class="fav-btn" onclick="toggleFav(this)">🤍</button>
+        <div onclick="openVideo('Vid/video_3.mp4')">
+            <h3>شد عضلة الفخذ<br>شد العضلة الأمامية</h3>
+            <video class="video-preview" src="Vid/video_3.mp4#t=0.001" muted></video>
+        </div>
+    </div>
+    <div class="card">
+        <button type="button" class="fav-btn" onclick="toggleFav(this)">🤍</button>
+        <div onclick="openVideo('Vid/video_2.mp4')">
+            <h3>رفع الساق مستقيمة<br>رفع الساق للأعلى</h3>
+            <video class="video-preview" src="Vid/video_2.mp4#t=0.001" muted></video>
+        </div>
+    </div>
+    <div class="card">
+        <button type="button" class="fav-btn" onclick="toggleFav(this)">🤍</button>
+        <div onclick="openVideo('Vid/video_6.mp4')">
+            <h3>سكوات بسيط</h3>
+            <video class="video-preview" src="Vid/video_6.mp4#t=0.001" muted></video>
+        </div>
+    </div>
+</div>
+
+<div id="videoPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closeVideo()">✖</span>
+        <video id="videoPlayer" controls></video>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="about.html">من نحن</a>
+        <a href="contact_us.html">تواصل معنا</a>
+        <a href="teerms.html">سياسة الخصوصية والشروط والأحكام</a>
+        <a href="FAQ.html">الأسئلة الشائعة</a>
+    </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

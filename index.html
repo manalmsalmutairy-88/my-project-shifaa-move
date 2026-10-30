@@ -1,0 +1,153 @@
+<?php include 'db.php'; ?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شفاء موف - الرئيسية</title>
+    <link rel="icon" type="image/png" href="img_2.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="styleindex.css">
+
+    <!-- ملف الشات بوت -->
+    <link rel="stylesheet" href="chatbot.css">
+
+    <script src="script-index.js" defer></script>
+
+    <style>
+        body, header, section, div, footer, nav {
+            direction: rtl !important;
+            text-align: right;
+        }
+
+        .hero .brand main {
+            text-align: center !important;
+            width: 100%;
+        }
+
+        .section-title,
+        .cta-title,
+        .cta-buttons,
+        .cards {
+            text-align: center !important;
+        }
+
+        .card {
+            text-align: center !important;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            text-align: center !important;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="img_2.png" alt="logo">
+    </div>
+
+    <div class="header-right">
+        <a href="index.html" class="nav-btn">الرئيسية</a>
+        <a href="pageAfterLogin.html" class="nav-btn">التمارين</a>
+        <a href="tools.html" class="nav-btn">الأدوات الطبية</a>
+        <a href="centers.html" class="nav-btn">المراكز</a>
+
+        <a href="snigup.html" class="nav-btn" id="signup-btn">إنشاء حساب</a>
+        <a href="login.html" class="nav-btn" id="login-btn">تسجيل الدخول</a>
+        <button class="nav-btn" id="logout-btn" style="display:none;" onclick="logout()">تسجيل الخروج</button>
+
+        <a href="index-en.html" class="nav-btn" style="text-decoration:none; background-color:#f0f0f0; color:#333;">English</a>
+    </div>
+</header>
+
+<section class="hero" aria-label="اسم ووصف الموقع">
+    <div class="brand">
+        <main>
+            <h2>شفاء موف</h2>
+            <p>دليلك للعلاج الطبيعي وإعادة التأهيل</p>
+            <p>منصة مجانية توفر تمارين علاج طبيعي موجهة وأدوات مساعدة</p>
+            <p>ودليل لمراكز العلاج الطبيعي لدعم التعافي وتحسين جودة الحياة من المنزل</p>
+        </main>
+        <div class="hero-inner"></div>
+    </div>
+</section>
+
+<div class="section-title-wrapper">
+    <h2 class="section-title">الخدمات</h2>
+</div>
+
+<div class="cards" role="list">
+
+    <article class="card" role="listitem">
+        <h3>التمارين</h3>
+        <p>فيديوهات تمارين علاج طبيعي لكبار السن وإعادة التأهيل بعد الإصابات أو العمليات.</p>
+    </article>
+
+    <article class="card" role="listitem">
+        <h3>الأدوات الطبية</h3>
+        <p>تصفح الأدوات والأجهزة المساعدة مع روابط شراء من مصادر موثوقة.</p>
+    </article>
+
+    <article class="card" role="listitem">
+        <h3>المراكز</h3>
+        <p>اعثر على مراكز علاج طبيعي قريبة مع معلومات التواصل والعناوين.</p>
+    </article>
+
+</div>
+
+<div class="cta-wrapper">
+    <h2 class="cta-title">ابدأ رحلة تعافيك اليوم</h2>
+</div>
+
+<div class="cta-buttons">
+    <a href="snigup.html" class="cta-pill">إنشاء حساب</a>
+    <a href="login.html" class="cta-pill">تسجيل الدخول</a>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="about.html">من نحن</a>
+        <a href="contact_us.html">اتصل بنا</a>
+        <a href="teerms.html">سياسة الخصوصية والشروط</a>
+        <a href="FAQ.html">الأسئلة الشائعة</a>
+    </div>
+</footer>
+
+<!-- الشات بوت -->
+<div id="chatbot-container"></div>
+
+<script>
+window.onload = function () {
+    let isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn === "true") {
+        document.getElementById("login-btn").style.display = "none";
+        document.getElementById("signup-btn").style.display = "none";
+        document.getElementById("logout-btn").style.display = "inline-block";
+    }
+};
+
+function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.reload();
+}
+</script>
+
+<!-- ملف جافاسكربت الشات بوت -->
+<script src="chatbot.js"></script>
+
+</body>
+</html>

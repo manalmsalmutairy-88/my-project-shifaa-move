@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    direction: rtl;
+
+    background-image: url('img_1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* بدل height */
+    /* احذفي overflow */
+}
+
+/* الهيدر */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    direction: ltr;
+}
+
+.logo img {
+    width: 140px;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    direction: rtl;
+}
+
+.nav-btn {
+    text-decoration: none; /* يشيل الخط */
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background-color: #d9ecec;
+    font-size: 13px;
+    color: black;
+}
+
+.nav-btn.active {
+    background-color: #9ed1d1;
+}
+
+.nav-btn.active {
+    background-color: #9ed1d1;
+}
+
+/* المحتوى */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* الكرت */
+.card {
+    background: rgba(173, 216, 216, 0.85);
+    backdrop-filter: blur(5px);
+
+    padding: 25px;
+    border-radius: 25px;
+
+    width: 90%;
+    max-width: 350px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2b7a7a;
+    font-size: 22px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    margin-bottom: 12px;
+}
+
+/* الأزرار */
+.main-btn {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #5bbcbc;
+    color: white;
+}
+
+.secondary-btn {
+    text-decoration: none; /* يشيل الخط */
+    display: block; /* يخليه مثل الزر */
+    text-align: center;
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #7fcaca;
+    margin-top: 10px;
+
+    color: black; /* بدل الأزرق */
+}
+
+.note {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* الفوتر */
+footer {
+    background-color: #cce7e7;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.footer-links a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    left: -10px;
+    color: #999;
+}
+.forgot-container{
+    text-align: center;
+    margin: 12px 0;
+}
+
+.forgot-link{
+    text-decoration: none;
+    color: #0e4a43;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.forgot-link:hover{
+    color: #14665d;
+}

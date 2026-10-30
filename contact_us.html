@@ -1,0 +1,87 @@
+<?php include 'db.php'; ?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>SHIFAA MOVE</title>
+  <link rel="icon" type="image/png" href="img_2.png">
+  <link rel="stylesheet" href="contact_us.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <img src="img_2.png" alt="logo">
+  </div>
+
+  <div class="nav-right">
+    <nav style="display: flex; gap: 10px; align-items: center;">
+      <a href="index.html" class="nav-btn">الصفحة الرئيسية</a>
+      <a href="contact_us-en.html" class="nav-btn" style="background-color: #f0f0f0; color: #333;">English</a>
+    </nav>
+   
+  </div>
+</header>
+
+<h2 class="contact-heading">يسعدنا تواصلكم معنا لإي إستفسار أرسل رسالتك هنا </h2>
+
+<div class="contact-wrapper">
+  <div class="contact-info">
+    <h3>معلومات التواصل</h3>
+    <div class="info-box">📧 shifaamove@gmail.com</div>
+    <div class="info-box">📱 0512345678</div>
+  </div>
+
+  <div class="contact-form">
+    <h3>أرسل رسالتك هنا</h3>
+    <input type="text" placeholder="الاسم الثلاثي">
+    <input type="email" placeholder="البريد الإلكتروني">
+    <input type="text" placeholder="الموضوع">
+    <textarea placeholder="محتوى الرسالة"></textarea>
+    <button class="btn-send">إرسال الرسالة</button>
+  </div>
+</div>
+
+<script>
+
+  document.querySelector('.btn-send').addEventListener('click', function () {
+    const inputs  = document.querySelectorAll('.contact-form input');
+    const name    = inputs[0].value.trim();
+    const email   = inputs[1].value.trim();
+    const subject = inputs[2].value.trim();
+    const message = document.querySelector('.contact-form textarea').value.trim();
+
+    if (!name) { showToast('الرجاء إدخال الاسم الثلاثي'); highlight(inputs[0]); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('البريد الإلكتروني غير صحيح'); highlight(inputs[1]); return; }
+    if (!subject) { showToast('الرجاء إدخال الموضوع'); highlight(inputs[2]); return; }
+    if (message.length < 10) { showToast('الرسالة قصيرة جداً (10 أحرف على الأقل)'); highlight(document.querySelector('.contact-form textarea')); return; }
+
+    showToast('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً');
+    inputs[0].value = ''; inputs[1].value = ''; inputs[2].value = '';
+    document.querySelector('.contact-form textarea').value = '';
+  });
+
+  function highlight(el) { el.style.border = '1.5px solid red'; el.focus(); el.addEventListener('input', () => { el.style.border = ''; }, { once: true }); }
+  function showToast(msg) {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'toast';
+      toast.style.cssText = `position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #0C4B53; color: #fff; padding: 12px 28px; border-radius: 20px; font-family: 'Cairo', sans-serif; font-size: 14px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: opacity 0.3s;`;
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg; toast.style.opacity = '1'; clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => toast.style.opacity = '0', 3000);
+  }
+</script>
+
+<footer>
+    <div class="footer-links">
+        <a href="about.html">من نحن</a>
+        <a href="contact_us.html">تواصل معنا</a>
+        <a href="teerms.html">سياسة الخصوصية والشروط والأحكام</a>
+        <a href="FAQ.html">الأسئلة الشائعة</a>
+    </div>
+</footer>
+</body>
+</html>

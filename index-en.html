@@ -1,0 +1,138 @@
+<?php include 'db.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFAA MOVE - Home</title>
+    <link rel="icon" type="image/png" href="img_2.png">
+    <link rel="stylesheet" type="text/css" media="screen" href="styleindex.css">
+    <script src="script-index.js" defer></script>
+    <style>
+        /* Force LTR direction but allow centering */
+        body, header, section, div, footer, nav {
+            direction: ltr !important;
+        }
+
+        /* Center the Hero text specifically */
+        .hero .brand main {
+            text-align: center !important;
+            width: 100%;
+        }
+
+        /* Center the Titles and Buttons */
+        .section-title, .cta-title, .cta-buttons, .cards {
+            text-align: center !important;
+        }
+
+        /* Center the text inside the Cards */
+        .card {
+            text-align: center !important;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        /* Footer centering */
+        .footer-links {
+            text-align: center !important;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="img_2.png" alt="logo">
+    </div>
+
+    <div class="header-right">
+        <a href="index-en.html" class="nav-btn">Home</a>
+        <a href="pageAfterLogin-en.html" class="nav-btn">Exercises</a>
+        <a href="tools-en.html" class="nav-btn">Medical Tools</a>
+        <a href="centers-en.html" class="nav-btn">Centers</a>
+
+        
+
+        <a href="snigup-en.html" class="nav-btn" id="signup-btn">Sign Up</a>
+        <a href="login-en.html" class="nav-btn" id="login-btn">Login</a>
+        <button class="nav-btn" id="logout-btn" style="display:none;" onclick="logout()">Logout</button>
+
+        <a href="index.html" class="nav-btn" style="text-decoration: none; background-color: #f0f0f0; color: #333;">العربية</a>
+    </div>
+</header>
+
+<section class="hero" aria-label="Description and Name">
+    <div class="brand">
+        <main>
+            <h2>Shifaa Move</h2>
+            <p>Your guide to physiotherapy and rehabilitation</p>
+            <p>A free platform providing guided physiotherapy exercises and assistive tools</p>
+            <p>And a directory of physiotherapy centers to support recovery and improve quality of life from home</p>
+        </main>
+        <div class="hero-inner"></div>
+    </div>
+</section>
+
+<div class="section-title-wrapper">
+    <h2 class="section-title">Services</h2>
+</div>
+
+<div class="cards" role="list">
+    <article class="card" role="listitem">
+        <h3>Exercises</h3>
+        <p>Video physiotherapy exercises for the elderly and rehabilitation after injuries or surgeries.</p>
+    </article>
+
+    <article class="card" role="listitem">
+        <h3>Medical Tools</h3>
+        <p>Browse assistive tools and devices with purchase links from trusted sources.</p>
+    </article>
+
+    <article class="card" role="listitem">
+        <h3>Centers</h3>
+        <p>Find nearby physiotherapy centers with contact information and addresses.</p>
+    </article>
+</div>
+
+<div class="cta-wrapper">
+    <h2 class="cta-title">Start Your Recovery Journey Today</h2>
+</div>
+
+<div class="cta-buttons">
+    <a href="snigup-en.html" class="cta-pill">Create Account</a>
+    <a href="login-en.html" class="cta-pill">Login</a>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="about-en.html">About Us</a>
+        <a href="contact_us-en.html">Contact Us</a>
+        <a href="teerms-en.html">Privacy Policy & Terms</a>
+        <a href="FAQ-en.html">FAQ</a>
+    </div>
+</footer>
+
+<script>
+    window.onload = function () {
+        let isLoggedIn = localStorage.getItem("isLoggedIn");
+        if (isLoggedIn === "true") {
+            document.getElementById("login-btn").style.display = "none";
+            document.getElementById("signup-btn").style.display = "none";
+            document.getElementById("logout-btn").style.display = "inline-block";
+        }
+    };
+    function logout() {
+        localStorage.removeItem("isLoggedIn");
+        window.location.reload();
+    }
+</script>
+</body>
+</html>

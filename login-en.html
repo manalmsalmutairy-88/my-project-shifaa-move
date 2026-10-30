@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        /* Maintain layout while ensuring Left-to-Right text flow */
+        body, header, .container, footer, nav {
+            direction: ltr !important;
+            text-align: left !important;
+        }
+        .card h2, .note {
+            text-align: center !important; /* Keep the center headings centered */
+        }
+    </style>
+</head>
+<script>
+function login() {
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    let emailError = document.getElementById("email-error");
+    let passwordError = document.getElementById("password-error");
+
+    // Reset errors
+    emailError.innerText = "";
+    passwordError.innerText = "";
+    email.classList.remove("error-border");
+    password.classList.remove("error-border");
+
+    let isValid = true;
+
+    // Email Check
+    if (email.value.trim() === "") {
+        emailError.innerText = "❌ Please enter your email";
+        email.classList.add("error-border");
+        isValid = false;
+    }
+
+    // Password Check
+    if (password.value.trim() === "") {
+        passwordError.innerText = "❌ Please enter your password";
+        password.classList.add("error-border");
+        isValid = false;
+    }
+
+    if (isValid) {
+        // Save login status
+        localStorage.setItem("isLoggedIn", "true");
+        // Redirect to English user page
+        window.location.href = "userpage-en.html";
+    }
+}
+</script>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="img_2.png" alt="logo">
+    </div>
+
+    <nav style="display: flex; gap: 10px; align-items: center;">
+        <a href="index-en.html" class="nav-btn">Home</a>
+      
+        <a href="login.html" class="nav-btn" style="background-color: #f0f0f0; color: #333;">العربية</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email Address">
+        <p id="email-error" class="error"></p>
+        <input type="password" id="password" placeholder="Password">
+        <p id="password-error" class="error"></p>
+        <button onclick="login()" class="main-btn">Login</button>
+        <p class="note">Don't have an account?</p>
+        <a href="snigup-en.html" class="secondary-btn">Create Account</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="about-en.html">About Us</a>
+        <a href="contact_us-en.html">Contact Us</a>
+        <a href="teerms-en.html">Privacy Policy & Terms</a>
+        <a href="FAQ-en.html">FAQ</a>
+    </div>
+</footer>
+</body>
+</html>

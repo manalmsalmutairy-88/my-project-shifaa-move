@@ -1,0 +1,184 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: Arial, sans-serif;
+  direction: rtl;
+
+  background-image: url('img_1.png'); /* خلي نفس صورتك */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+header {
+  width: 100%;
+  height: 70px;
+
+  background: none;
+  box-shadow: none;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  padding: 10px 20px;
+}
+
+header img {
+  width: 140px; 
+}
+
+/* الأزرار يمين */
+nav {
+  direction: rtl;
+  display: flex;
+  gap: 10px;
+}
+
+/* الأزرار */
+nav a {
+  text-decoration: none;
+  padding: 8px 20px;
+  background: #cde5e8;
+  border-radius: 20px;
+  color: black;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #a8d3d8;
+}
+
+.active {
+  background: #a8d3d8;
+}
+
+/* ================= MAIN ================= */
+.main {
+  margin-top: 90px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+
+  gap: 80px; 
+
+  flex: 1;
+
+  padding: 30px 40px 80px; 
+}
+
+/* ================= CARDS FIX ================= */
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /*  يخلي كل العناصر بنفس التوزيع */
+
+  text-align: center;
+  text-decoration: none;
+  color: black;
+
+  width: 220px;       /*  عرض ثابت */
+  height: 320px;      /*  ارتفاع ثابت */
+
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+/* العنوان */
+.box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/*  الصورة (أهم تعديل) */
+.box img {
+  width: 190px;
+  height: 190px;          /*  نفس الارتفاع لكل الصور */
+  object-fit: contain;    /* ما يخرب الصورة */
+}
+
+/* الزر */
+.box::after {
+  content: "مشاهدة";
+  background-color: #5bbcbc;
+  color: white;
+
+  padding: 8px 25px;
+  border-radius: 20px;
+
+  font-size: 14px;
+}
+
+html[lang="en"] .box::after {
+  content: "Watch";
+}
+
+footer {
+    background-color: #cce7e7;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+
+    margin-top: auto; /*  ينزل الفوتر تحت */
+}
+
+/* روابط الفوتر */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+}
+
+/* الخط الفاصل */
+.footer-links a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    left: -10px;
+    color: #999;
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 8px 16px; 
+    border-radius: 20px;
+    background-color: #d9ecec;
+    color: black;
+    font-size: 14px;
+}
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .box img {
+    width: 150px;
+  }
+}

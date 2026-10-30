@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    direction: rtl;
+
+    background-image: url('img_1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* الحل */
+}
+
+/* الهيدر */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    direction: ltr;
+}
+
+.logo img {
+    width: 140px;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    direction: rtl;
+}
+
+.nav-btn {
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background-color: #d9ecec;
+    cursor: pointer;
+}
+
+.nav-btn.active {
+    background-color: #9ed1d1;
+}
+
+/* المحتوى */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0;
+}
+
+/* الصندوق الكبير */
+.faq-box {
+    background: rgba(173, 200, 200, 0.9);
+    padding: 20px;
+    border-radius: 20px;
+
+    width: 85%;
+    max-width: 1000px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* الكروت */
+.faq-card {
+    background: #e9e4e4;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.faq-card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.faq-card p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+.nav-btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #d9ecec;
+    color: black;
+    font-size: 15px;
+}
+
+/* الكرت الأخير بعرض كامل */
+.faq-card.full {
+    grid-column: span 2;
+}
+
+footer {
+    background-color: #cce7e7;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.footer-links a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    left: -10px;
+    color: #999;
+}

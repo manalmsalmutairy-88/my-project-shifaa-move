@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFAA MOVE - المفضلة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --teal-light: #d6f0ef;
+            --bg: #ffffff;
+            --card-bg: #f3f3f3;
+            --dark: #1a1a2e;
+            --border: #e0e0e0;
+        }
+
+       
+        body {
+            font-family: 'arial', sans-serif;
+            direction: rtl;
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+       
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            background: white;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: #d9ecec;
+            color: #000;
+            font-size: 14px;
+            transition: .3s;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover {
+            background: #c8e3e3;
+        }
+
+      
+        main {
+            flex: 1;
+            padding-bottom: 40px;
+        }
+
+        .section-block {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+        }
+
+        .section-label-row {
+            display: flex;
+            justify-content: flex-start;
+            padding: 20px 50px 10px;
+        }
+
+        .section-label {
+            background: #c4e8e6;
+            border-radius: 20px;
+            padding: 6px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+  
+        .cards-row {
+            display: flex;
+            gap: 30px;
+            padding: 15px 50px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .card {
+            width: 220px;
+            text-align: center;
+            animation: fadeIn .4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #111;
+        }
+
+        .card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #eee;
+        }
+
+     
+        .watch-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 10px 24px;
+            background: #0e4a43;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .watch-btn:hover {
+            background: #0a3830;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #e44b6d;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: 'Cairo', sans-serif;
+            transition: .3s;
+        }
+
+        .remove-btn::before {
+            content: "💔 ";
+        }
+
+   
+        .popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .popup-content {
+            position: relative;
+            width: 90%;
+            max-width: 300px;
+        }
+
+        .popup-content video {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        #favMessage {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e8fff8;
+            color: #0e4a43;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,.1);
+            z-index: 99999;
+            display: none;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #cce7e7;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            position: relative;
+            padding: 0 8px;
+        }
+
+        .footer-links a:not(:last-child)::after {
+            content: "|";
+            position: absolute;
+            left: -10px;
+            color: #999;
+        }
+
+        
+        @media (max-width: 700px) {
+            .cards-row { justify-content: center; padding: 15px; }
+            .header-nav { gap: 5px; }
+            .nav-btn { font-size: 12px; padding: 8px 10px; }
+            .card { width: 100%; max-width: 220px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-nav">
+            <a href="favorites-en.html" class="nav-btn">English</a>
+            <a href="userpage.html" class="nav-btn">الرجوع إلى الصفحة الرئيسية</a>
+            <a href="tools.html" class="nav-btn">الأدوات</a>
+            <a href="pageAfterLogin.html" class="nav-btn">قائمة التمارين الرئيسية</a>
+        </div>
+        <div class="logo">
+            <img src="img_2.png" alt="logo">
+        </div>
+    </header>
+
+    <main>
+        <div class="section-block">
+            <div class="section-label-row">
+                <span class="section-label">التمارين المفضلة</span>
+            </div>
+            <div class="cards-row">
+                <div class="card">
+                    <h3>إمالة الرأس يميناً ويساراً</h3>
+                    <button class="watch-btn" onclick="openVideo('Vid/video_13.mp4')">
+                        مشاهدة <span>▶️</span>
+                    </button>
+                    <br>
+                    <button class="remove-btn" onclick="removeCard(this)">إزالة</button>
+                </div>
+
+                <div class="card">
+                    <h3>تمرين سحب الذقن</h3>
+                    <button class="watch-btn" onclick="openVideo('Vid/video_15.mp4')">
+                        مشاهدة <span>▶️</span>
+                    </button>
+                    <br>
+                    <button class="remove-btn" onclick="removeCard(this)">إزالة</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <div class="section-label-row">
+                <span class="section-label">الأدوات المفضلة</span>
+            </div>
+            <div class="cards-row">
+                <div class="card">
+                    <img src="t1.jpeg" alt="">
+                    <h3 style="font-size:16px;">دعامة دعم المعصم والإبهام</h3>
+                    <button class="remove-btn" onclick="removeCard(this)">إزالة</button>
+                </div>
+
+                <div class="card">
+                    <img src="t2.jpeg" alt="">
+                    <h3 style="font-size:16px;">شبكة تمارين اليد والأصابع</h3>
+                    <button class="remove-btn" onclick="removeCard(this)">إزالة</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="popup" id="videoPopup" onclick="if(event.target===this) closeVideo()">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeVideo()">✖</button>
+            <video id="videoPlayer" controls></video>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">من نحن</a>
+            <a href="contact_us.html">تواصل معنا</a>
+            <a href="teerms.html">سياسة الخصوصية والشروط والأحكام</a>
+            <a href="FAQ.html">الأسئلة الشائعة</a>
+        </div>
+    </footer>
+
+    <div id="favMessage"></div>
+
+    <script>
+        const popup = document.getElementById("videoPopup");
+        const player = document.getElementById("videoPlayer");
+        const msg = document.getElementById("favMessage");
+
+        function openVideo(src) {
+            player.src = src;
+            popup.classList.add("active");
+            player.play();
+        }
+
+        function closeVideo() {
+            player.pause();
+            player.src = "";
+            popup.classList.remove("active");
+        }
+
+        function removeCard(button) {
+            button.closest(".card").remove();
+            showMessage("تمت الإزالة من المفضلة 💔");
+        }
+
+        function showMessage(text) {
+            msg.innerHTML = text;
+            msg.style.display = "block";
+            setTimeout(() => {
+                msg.style.display = "none";
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>

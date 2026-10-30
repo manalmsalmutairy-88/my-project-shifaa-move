@@ -1,0 +1,236 @@
+/* إعدادات عامة */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    direction: rtl;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    width: 100%;
+}
+
+.header-right,
+.header-center,
+.header-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-right {
+    justify-content: flex-start;
+}
+
+.header-center {
+    justify-content: center;
+}
+
+.header-left {
+    justify-content: flex-end;
+}
+
+/* المستخدم */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* القائمة */
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn, .logout-btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #cce7e7;
+    color: #000;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+/* البحث */
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    width: 180px;
+    padding: 8px 35px 8px 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #f1f1f1;
+    text-align: right;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    color: #888;
+}
+
+/* اللغة */
+.language-selector {
+    font-size: 14px;
+}
+
+/* الشعار */
+.logo img {
+    width: 140px;
+}
+
+
+.welcome-banner {
+    background-color: #e3f2f2;
+    text-align: center;
+    padding: 25px 10px;
+    color: #125c5c;
+}
+
+.welcome-banner h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.welcome-banner p {
+    font-size: 14px;
+}
+
+/* الكروت */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2%;
+    padding: 20px 5%;
+    flex: 1;
+}
+
+.card {
+    background-color: #cce7e7;
+    width: 30%;
+    max-width: 350px;
+    padding: 15px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* عنوان الكرت */
+.card-title {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* الصور */
+.card-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.card-images img {
+    width: 30%;
+    height: 90px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.tools-images img {
+    border-radius: 50%;
+}
+
+.action-btn {
+    background-color: #439a9a;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    width: 80%;
+    cursor: pointer;
+
+    text-decoration: none;   /*يشيل الخط */
+    display: inline-block;   /*يخليه مثل الزر */
+    text-align: center;      /*يوسّط النص */
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background-color: #d9ecec;
+    color: black;
+    font-size: 14px;
+    border: none; /*مهم عشان يطابق شكل <a> */
+    cursor: pointer;
+}
+/* =========================================
+   الفوتر
+   ========================================= */
+
+footer {
+    background-color: #cce7e7;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.footer-links a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    left: -10px;
+    color: #999;
+}
